@@ -24,6 +24,7 @@ Object.keys(config).forEach(depName => {
         targetPath,
       )}". Skipping.`,
     )
+    return
   }
   if (fs.pathExistsSync(targetPath)) {
     fs.removeSync(targetPath)
