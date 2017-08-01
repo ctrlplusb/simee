@@ -18,6 +18,13 @@ Object.keys(config).forEach(depName => {
   const sourcePath = path.resolve(process.cwd(), relativeDir)
   const targetPath = path.resolve(process.cwd(), `./node_modules/${depName}`)
 
+  if (!fs.pathExistsSync(sourcePath)) {
+    console.warn(
+      `Could not find "${chalk.green(depName)}" at "${chalk.green(
+        targetPath,
+      )}". Skipping.`,
+    )
+  }
   if (fs.pathExistsSync(targetPath)) {
     fs.removeSync(targetPath)
   }
