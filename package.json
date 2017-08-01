@@ -1,6 +1,6 @@
 {
   "name": "simee",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Ultra simple symlinking of local npm packages.",
   "bin": {
     "simee": "./index.js"
