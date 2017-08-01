@@ -21,7 +21,7 @@ Object.keys(config).forEach(depName => {
   if (!fs.pathExistsSync(sourcePath)) {
     console.warn(
       `Could not find "${chalk.blue(depName)}" at "${chalk.green(
-        targetPath,
+        sourcePath,
       )}". Skipping.`,
     )
     return
