@@ -20,7 +20,7 @@ Object.keys(config).forEach(depName => {
 
   if (!fs.pathExistsSync(sourcePath)) {
     console.warn(
-      `Could not find "${chalk.green(depName)}" at "${chalk.green(
+      `Could not find "${chalk.blue(depName)}" at "${chalk.green(
         targetPath,
       )}". Skipping.`,
     )
@@ -31,7 +31,7 @@ Object.keys(config).forEach(depName => {
   }
 
   console.log(
-    `Linking package ${chalk.blue(sourcePath)} -> ${chalk.green(targetPath)}`,
+    `Linking "${chalk.blue(depName)}" to "${chalk.green(targetPath)}"`,
   )
   fs.ensureSymlinkSync(sourcePath, targetPath)
 
@@ -49,9 +49,9 @@ Object.keys(config).forEach(depName => {
           `./node_modules/.bin/${binaryName}`,
         )
         console.log(
-          `Linking package binary ${chalk.blue(binSourcePath)} -> ${chalk.green(
+          `Linking binary "${chalk.blue(binaryName)}" to "${chalk.green(
             binTargetPath,
-          )}`,
+          )}"`,
         )
         fs.ensureSymlinkSync(binSourcePath, binTargetPath)
       })
